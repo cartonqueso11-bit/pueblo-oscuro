@@ -1,0 +1,27 @@
+name: Crear instalador de Windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Descargar proyecto
+        uses: actions/checkout@v4
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Instalar dependencias
+        run: npm install
+      - name: Crear instalador EXE
+        run: npm run build:win
+      - name: Publicar instalador
+        uses: actions/upload-artifact@v4
+        with:
+          name: Pueblo-Oscuro-Windows
+          path: dist/*.exe
+          if-no-files-found: error
