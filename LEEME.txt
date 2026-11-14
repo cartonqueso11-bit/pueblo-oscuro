@@ -1,0 +1,24 @@
+# Pueblo Oscuro — proyecto para crear el EXE
+
+El juego original se ha colocado como `index.html` sin reescribir su código.
+Este proyecto usa Electron y GitHub Actions para compilar el instalador de Windows en la nube.
+
+## Cómo obtener el EXE usando solo Android
+
+1. Descarga y descomprime este ZIP en tu celular.
+2. Entra en https://github.com y crea una cuenta o inicia sesión.
+3. Crea un repositorio nuevo llamado `pueblo-oscuro` y déjalo **Public**.
+4. En el repositorio, usa **Add file → Upload files** y sube TODO el contenido de esta carpeta,
+   incluido `index.html`, `main.js`, `package.json` y la carpeta `.github/workflows`.
+5. Confirma la subida con **Commit changes**.
+6. Abre la pestaña **Actions** del repositorio. Espera a que termine el proceso
+   **Crear instalador de Windows** (puede tardar varios minutos).
+7. Entra en la ejecución terminada y baja el archivo de **Artifacts** llamado
+   `Pueblo-Oscuro-Windows`. Dentro estará `Pueblo-Oscuro-Setup-1.0.0.exe`.
+
+## Importante
+- La compilación ocurre en servidores Windows de GitHub; no necesitas una PC para compilar.
+- Para instalar y jugar el EXE sí necesitarás una PC con Windows.
+- El proyecto conserva el HTML del juego. La fuente pixelada de Google puede requerir Internet;
+  el juego tiene fuentes alternativas si no carga.
+- El instalador no está firmado digitalmente; Windows puede mostrar una advertencia de editor desconocido.
