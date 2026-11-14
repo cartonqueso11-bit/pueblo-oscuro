@@ -1,0 +1,32 @@
+
+name: Crear instalador de Windows
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Crear EXE
+        run: npm run build
+
+      - name: Guardar instalador
+        uses: actions/upload-artifact@v4
+        with:
+          name: Pueblo-Oscuro-Windows
+          path: dist/*.exe
+          
