@@ -1,29 +1,28 @@
+
 const { app, BrowserWindow } = require("electron");
-const path = require("node:path");
+const path = require("path");
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 1000,
-    height: 850,
-    minWidth: 480,
-    minHeight: 600,
+    width: 1100,
+    height: 700,
+    minWidth: 800,
+    minHeight: 500,
     title: "Pueblo Oscuro",
-    backgroundColor: "#0e0c1a",
-    autoHideMenuBar: true,
-    webPreferences: {
-      nodeIntegration: false,
-      contextIsolation: true,
-      sandbox: true
-    }
+    icon: path.join(__dirname, "icon.ico"),
+    autoHideMenuBar: true
   });
 
-  win.loadFile(path.join(__dirname, "index.html"));
+  win.loadFile("index.html");
 }
 
 app.whenReady().then(() => {
   createWindow();
+
   app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
   });
 });
 
