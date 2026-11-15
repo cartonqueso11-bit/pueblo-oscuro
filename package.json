@@ -23,9 +23,11 @@
     "files": [
       "index.html",
       "main.js",
-      "package.json"
+      "package.json",
+      "icon.ico"
     ],
     "win": {
+      "icon": "icon.ico",
       "target": ["nsis"],
       "artifactName": "Pueblo-Oscuro-Setup-${version}.${ext}"
     },
